@@ -1,0 +1,30 @@
+{
+  "name": "rescript-deno",
+  "namespace": false,
+  "refmt": 3,
+  "suffix": ".bs.js",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "examples",
+      "dev": true,
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "es6",
+      "in-source": true
+    }
+  ],
+  "external-stdlib": "@rescript/std",
+  "bs-dependencies": [
+    "@ryyppy/rescript-promise",
+    "rescript-webapi"
+  ],
+  "bs-dev-dependencies": [
+  ]
+}
