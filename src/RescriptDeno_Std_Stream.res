@@ -12,6 +12,20 @@
 
 // @module("https://deno.land/std/streams/mod.ts")
 
+@module("https://deno.land/std/streams/mod.ts")
+external readAll: module(RescriptDeno_IO.Reader) => Promise.t<Js.TypedArray2.Uint8Array.t> =
+  "readAll"
+
+@module("https://deno.land/std/streams/mod.ts")
+external readAllSync: module(RescriptDeno_IO.ReaderSync) => Js.TypedArray2.Uint8Array.t =
+  "readAllSync"
+
+@module("https://deno.land/std/streams/mod.ts")
+external writeAll: module(RescriptDeno_IO.Writer) => Promise.t<unit> = "writeAll"
+
+@module("https://deno.land/std/streams/mod.ts")
+external writeAllSync: module(RescriptDeno_IO.WriterSync) => unit = "writeAllSync"
+
 type copyOptions
 
 %%private(
