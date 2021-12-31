@@ -11,6 +11,9 @@ external setEnabled: bool => unit = "setColorEnabled"
 external getEnabled: unit => bool = "getColorEnabled"
 
 @module("https://deno.land/std/fmt/colors.ts")
+external bold: string => string = "bold"
+
+@module("https://deno.land/std/fmt/colors.ts")
 external reset: string => string = "reset"
 
 @module("https://deno.land/std/fmt/colors.ts")
