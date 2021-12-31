@@ -55,8 +55,7 @@ let rec print = (value, path) => {
       print(value, nodePath)
     })
   | JSONArray(value) =>
-    value
-    ->Belt.Array.forEachWithIndex((i, value) => {
+    value->Belt.Array.forEachWithIndex((i, value) => {
       let i = i->Belt.Int.toString
       let nodePath = (path != "" ? path : Color.cyan(".")) ++ `["${Color.cyan(i)}"]`
       print(value, nodePath)
@@ -78,11 +77,7 @@ if main {
   }
 
   if parsedArgs["_"][0] == "-" {
-    module(
-      {
-        let read = Deno.stdin->Deno.Stdin.read
-      }
-    )
+    module(Deno.Stdin.AsModule)
     ->Stream.readAll
     ->Promise.thenResolve(decoder->TextDecoder.decode)
     ->Promise.thenResolve(Js.Json.parseExn)

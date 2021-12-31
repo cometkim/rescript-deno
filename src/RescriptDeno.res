@@ -241,7 +241,8 @@ type memoryUsage = {
 @scope("Deno") @val external memoryUsage: unit => memoryUsage = "memoryUsage"
 
 // https://doc.deno.land/deno/stable/~/Deno.readFile
-@scope("Deno") @val external readFile: (string, unit) => Promise.t<Js.TypedArray2.Uint8Array.t> = "readFile"
+@scope("Deno") @val
+external readFile: (string, unit) => Promise.t<Js.TypedArray2.Uint8Array.t> = "readFile"
 
 // https://doc.deno.land/deno/stable/~/Deno.readFileSync
 @scope("Deno") @val external readFileSync: string => Js.TypedArray2.Uint8Array.t = "readFileSync"
@@ -252,12 +253,13 @@ type memoryUsage = {
 // https://doc.deno.land/deno/stable/~/Deno.readTextFileSync
 @scope("Deno") @val external readTextFileSync: string => string = "readTextFileSync"
 
-
-
 module IO = RescriptDeno_IO
 
 module Stdout = {
   type t
+
+  @scope("Deno") @val
+  external stdout: t = "stdout"
 
   @get
   external rid: t => int = "rid"
@@ -270,10 +272,19 @@ module Stdout = {
 
   @send
   external close: t => unit = "close"
+
+  module AsModule = {
+    let write = stdout->write
+    let writeSync = stdout->writeSync
+    let close = stdout->close
+  }
 }
 
 module Stdin = {
   type t
+
+  @scope("Deno") @val
+  external stdin: t = "stdin"
 
   @get
   external rid: t => int = "rid"
@@ -286,10 +297,19 @@ module Stdin = {
 
   @send
   external close: t => unit = "close"
+
+  module AsModule = {
+    let read = stdin->read
+    let readSync = stdin->readSync
+    let close = stdin->close
+  }
 }
 
 module Stderr = {
   type t
+
+  @scope("Deno") @val
+  external stderr: t = "stderr"
 
   @get
   external rid: t => int = "rid"
@@ -302,11 +322,17 @@ module Stderr = {
 
   @send
   external close: t => unit = "close"
+
+  module AsModule = {
+    let write = stderr->write
+    let writeSync = stderr->writeSync
+    let close = stderr->close
+  }
 }
 
-@scope("Deno") @val external stdout: Stdout.t = "stdout"
-@scope("Deno") @val external stdin: Stdin.t = "stdin"
-@scope("Deno") @val external stderr: Stderr.t = "stderr"
+let stdout = Stdout.stdout
+let stdin = Stdin.stdin
+let stderr = Stderr.stderr
 
 module File = RescriptDeno_File
 

@@ -10,11 +10,7 @@ let catFile = filename => {
           let read = file->Deno.File.read
         }
       ),
-      ~dst=module(
-        {
-          let write = Deno.stdout->Deno.Stdout.write
-        }
-      ),
+      ~dst=module(Deno.Stdout.AsModule),
       (),
     )->Promise.thenResolve(_ => {
       file->Deno.File.close
