@@ -240,6 +240,20 @@ type memoryUsage = {
 // https://doc.deno.land/builtin/stable#Deno.memoryUsage
 @scope("Deno") @val external memoryUsage: unit => memoryUsage = "memoryUsage"
 
+// https://doc.deno.land/deno/stable/~/Deno.readFile
+@scope("Deno") @val external readFile: (string, unit) => Promise.t<Js.TypedArray2.Uint8Array.t> = "readFile"
+
+// https://doc.deno.land/deno/stable/~/Deno.readFileSync
+@scope("Deno") @val external readFileSync: string => Js.TypedArray2.Uint8Array.t = "readFileSync"
+
+// https://doc.deno.land/deno/stable/~/Deno.readTextFile
+@scope("Deno") @val external readTextFile: (string, unit) => Promise.t<string> = "readTextFile"
+
+// https://doc.deno.land/deno/stable/~/Deno.readTextFileSync
+@scope("Deno") @val external readTextFileSync: string => string = "readTextFileSync"
+
+
+
 module IO = RescriptDeno_IO
 
 module Stdout = {

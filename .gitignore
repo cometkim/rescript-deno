@@ -1,8 +1,9 @@
 .DS_Store
-*.log
 .merlin
-
+.bsb.lock
+*.log
 *.bs.js
+
 lib/
 
 node_modules/

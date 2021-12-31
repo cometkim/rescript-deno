@@ -1,4 +1,4 @@
-Js.log("example: https://deno.land/std/examples/cat.ts")
+// see https://deno.land/std/examples/cat.ts
 
 module Deno = RescriptDeno
 
