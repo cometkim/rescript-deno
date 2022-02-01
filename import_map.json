@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@rescript/std/": "./node_modules/@rescript/std/"
+    "rescript/": "./node_modules/rescript/"
   }
 }

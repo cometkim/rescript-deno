@@ -20,7 +20,6 @@
       "in-source": true
     }
   ],
-  "external-stdlib": "@rescript/std",
   "bs-dependencies": [
     "@ryyppy/rescript-promise",
     "rescript-webapi"

@@ -27,6 +27,8 @@ __metadata:
     "@ryyppy/rescript-promise": ^2.1.0
     rescript: ^9.1.4
     rescript-webapi: ^0.2.0
+  peerDependencies:
+    rescript: ^9.1.0
   languageName: unknown
   linkType: soft
 

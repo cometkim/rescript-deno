@@ -1,11 +1,23 @@
 {
   "name": "rescript-deno",
   "version": "0.0.1",
-  "main": "index.js",
+  "description": "ReScript bindings to Deno APIs",
+  "keywords": [
+    "rescript",
+    "rescript-bindings",
+    "deno"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "rescript build",
     "example": "deno run -A --import-map=import_map.json"
+  },
+  "files": [
+    "src/**/*.res",
+    "bsconfig.json"
+  ],
+  "peerDependencies": {
+    "rescript": "^9.1.0"
   },
   "dependencies": {
     "@rescript/std": "^9.1.3",
